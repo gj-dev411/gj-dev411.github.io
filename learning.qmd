@@ -1,0 +1,205 @@
+---
+title: "Learning Progress"
+---
+
+Below is a record of R exercises I've worked through, shown in the order completed. Each entry includes what I was trying to solve and the code I used to solve it.
+
+```{r setup, include=FALSE}
+df1 <- data.frame(
+  id = c("1", " 2 ", " 3 ", "4","5","6"," 7 ","8","9","10"),
+  age = c(25, NA, 31, 28, 40, NA, 22, 35, 29, NA),
+  income = c(50000, 60000, NA, 65000, 72000, 68000, NA, 74000, 69000, 71000)
+)
+
+survey <- data.frame(
+  RespondentID = c("R1","R2","R2","R4","R5","R6","R7","R8","R9", NA,"R10","R11","R12","R13","R14","R15","R16","R17","R18", NA),
+  Age_Group = c("18-24","25-34","25-34","35-44","18 - 24","45 - 54","18-24","25-34","35-44","25-34","18-24","25-34","25-34","35-44","18 - 24","45 - 54","18-24","25-34","35-44","25-34"),
+  Satisfaction = c("5","4","4","3","5", NA, "2","4","3","4","5","4","4","3","5", NA, "2","4","3","4"),
+  Would_Recommend = c("yes","YES"," YES  ","no ","YES ","no  ","YES","no", NA,"yes ","yes","YES"," YES ","NO","No","no","YES","no", NA,"yes "),
+  stringsAsFactors = FALSE
+)
+
+library(tidyverse)
+```
+
+------------------------------------------------------------------------
+
+## Entry 1: Survey Data Cleaning: Duplicates, Case, Spacing, and Type Conversion
+
+**Task:** This survey dataset had several common real-world data issues at once: duplicate respondent rows, inconsistent capitalization and spacing in text responses, a numeric rating stored as character text, and missing respondent IDs. I worked through each issue systematically, checking the data before and after each fix, using both base R and tidyverse approaches.
+
+```{r}
+# preview the raw, uncleaned data
+survey
+```
+
+### Duplicates
+
+Before removing anything, I first confirmed whether repeated IDs were true duplicates or just similar looking rows, including checking whether missing values were adding noise to that comparison.
+
+```{r}
+# view all rows sharing the same RespondentID
+survey[survey$RespondentID == "R2", ]
+
+# exclude NA rows to see only the real comparison
+survey[survey$RespondentID == "R2" & !is.na(survey$RespondentID), ]
+
+# systematically check the whole dataset for duplicate rows
+duplicated(survey)
+
+# remove the duplicates
+survey <- survey[!duplicated(survey), ]
+
+# verify it worked
+nrow(survey)
+survey[survey$RespondentID == "R2" & !is.na(survey$RespondentID), ]
+```
+
+### Would_Recommend: fixing case and spacing
+
+```{r}
+# check inconsistencies (base R)
+table(survey$Would_Recommend)
+
+# base R fix
+survey$Would_Recommend <- tolower(trimws(survey$Would_Recommend))
+table(survey$Would_Recommend)
+```
+
+```{r}
+# tidyverse fix
+survey$Would_Recommend <- str_squish(survey$Would_Recommend)
+survey$Would_Recommend <- str_to_lower(survey$Would_Recommend)
+table(survey$Would_Recommend)
+
+# tidyverse piped version
+survey$Would_Recommend <- survey$Would_Recommend %>%
+  str_squish() %>%
+  str_to_lower()
+table(survey$Would_Recommend)
+```
+
+### Age_Group: fixing spacing around hyphens
+
+This one took two passes, my first attempt with `str_squish()` and `str_trim()` alone didn't fully resolve the inconsistent spacing around hyphens, which is a useful reminder to always re-check output rather than assume a fix worked.
+
+```{r}
+# check inconsistencies
+table(survey$Age_Group)
+
+# base R fix
+survey$Age_Group <- gsub(" - ", "-", survey$Age_Group)
+table(survey$Age_Group)
+```
+
+```{r}
+# first stringr attempt, didn't fully fix spacing
+survey$Age_Group <- str_squish(survey$Age_Group)
+survey$Age_Group <- str_trim(survey$Age_Group)
+table(survey$Age_Group)
+
+# targeted fix using str_replace_all()
+survey$Age_Group <- str_replace_all(survey$Age_Group, " - ", "-")
+table(survey$Age_Group)
+
+# tidyverse piped version
+survey$Age_Group <- survey$Age_Group %>%
+  str_replace_all(" - ", "-")
+table(survey$Age_Group)
+```
+
+### Satisfaction: converting text to numeric
+
+```{r}
+# check current type and values
+str(survey$Satisfaction)
+table(survey$Satisfaction)
+
+# base R fix
+survey$Satisfaction <- as.numeric(survey$Satisfaction)
+str(survey$Satisfaction)
+table(survey$Satisfaction)
+```
+
+```{r}
+# tidyverse fix
+survey$Satisfaction <- survey$Satisfaction %>%
+  as.numeric()
+str(survey$Satisfaction)
+```
+
+### RespondentID: handling missing values
+
+```{r}
+# check how many are missing, and view those rows
+sum(is.na(survey$RespondentID))
+survey[is.na(survey$RespondentID), ]
+
+# decision: label unknown IDs rather than drop the rows
+survey$RespondentID[is.na(survey$RespondentID)] <- "R_unknown_1"
+
+# verify it worked
+sum(is.na(survey$RespondentID))
+survey[survey$RespondentID == "R_unknown_1", ]
+```
+
+**What this showed me:** Cleaning rarely works on the first attempt, the `Age_Group` column looked fixed after `str_squish()` and `str_trim()`, but checking the output revealed it wasn't. Labeling the missing `RespondentID`s instead of dropping them was a deliberate choice to preserve those rows for analysis, but it's a decision that needs to be documented as a limitation in any later write-up, since those responses aren't truly identifiable.
+
+------------------------------------------------------------------------
+
+## Entry 2: Mean Imputation: Choosing a Method Based on Distribution Shape
+
+```{r}
+# a small practice dataset with some missing values in age and income
+df1
+```
+
+**Task:** Before filling in missing values, I wanted to understand whether mean or median imputation was the right choice, not just apply one automatically. That meant checking the shape of the distribution first, comparing the mean and median to see how close they were, and then actually watching what happened to the distribution after imputing.
+
+```{r}
+# check for missing values
+sum(is.na(df1$age))
+df1[is.na(df1$age), ]
+
+# check the shape of the distribution before imputing anything
+hist(df1$age, main = "Distribution of Age", xlab = "Age")
+
+# compare mean and median
+mean(df1$age, na.rm = TRUE)
+median(df1$age, na.rm = TRUE)
+
+# mean (30) and median (29) were close, with no major outlier or skew,
+# so mean imputation was a reasonable, defensible choice here
+
+# apply mean imputation
+df1$age[is.na(df1$age)] <- mean(df1$age, na.rm = TRUE)
+
+# verify it worked
+sum(is.na(df1$age))
+
+# check the shape again after imputing, to see the effect
+hist(df1$age, main = "Distribution of Age After Mean Imputation", xlab = "Age")
+```
+
+**What this showed me:** After filling in the missing values with the mean, the 25 to 30 bin gained extra values and became a visible peak, shifting the histogram from a fairly flat shape toward a single-peaked one. With only 10 data points, imputation didn't just fill gaps, it visibly changed the shape of the distribution. That's an important caveat to carry into any writeup that uses imputed data, especially with small samples.
+
+## Same Task, Tidyverse Version
+
+To compare approaches, I repeated the same imputation using tidyverse syntax instead of base R.
+
+```{r}
+# reset a fresh copy of the data (since df1 was already modified above)
+df1_tidy <- data.frame(
+  age = c(25, NA, 31, 28, 40, NA, 22, 35, 29, NA)
+)
+
+# apply mean imputation using dplyr's mutate and ifelse
+df1_tidy <- df1_tidy %>%
+  mutate(age = ifelse(is.na(age), mean(age, na.rm = TRUE), age))
+
+# verify it worked
+sum(is.na(df1_tidy$age))
+df1_tidy$age
+```
+
+Both approaches produce the same result: base R modifies the column directly with `[is.na(...)] <-`, while tidyverse expresses the same logic inside `mutate()` with `ifelse()`, as part of a pipeline. The tidyverse version reads more like a sentence describing the transformation, while base R is more direct indexing.

@@ -1,0 +1,12 @@
+---
+title: "Welcome to my Portfolio"
+---
+<!-- 
+![](images/headshot.jpg){width=180px style="border-radius: 50%;"}
+-->
+
+**Hi, I'm Gyna.**
+
+This site is a showcase of my progress learning data analysis with R, real exercises, real code, and the reasoning behind each decision, documented as I build the skill from the ground up.
+
+My background is in sociology and HR adjacent work. You can read more about that path on the [My Journey](about.qmd) page. This site itself is focused on the work: browse [Learning Progress](learning.qmd) to see what I've built so far.

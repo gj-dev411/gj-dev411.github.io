@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "gj-crtl-portfolio"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: learning.qmd
+        text: Learning Progress
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+editor: visual
+
