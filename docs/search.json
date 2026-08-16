@@ -37,8 +37,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to my Portfolio",
+    "title": "Gyna Jones",
     "section": "",
     "text": "Hi, I’m Gyna.\nThis site is a showcase of my progress learning data analysis with R, real exercises, real code, and the reasoning behind each decision, documented as I build the skill from the ground up.\nMy background is in sociology and HR adjacent work. You can read more about that path on the My Journey page. This site itself is focused on the work: browse Learning Progress to see what I’ve built so far."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Gyna Jones",
+    "section": "Education",
+    "text": "Education\nBA, Sociology Morgan State University, Baltimore| Maryland\nMBA, Masters of Business Administration University of Phoenix, Lancaster | California"
   }
 ]
