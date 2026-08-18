@@ -1,8 +1,22 @@
 ---
-title: "My Journey"
+title-block-banner: false
 ---
 
-------------------------------------------------------------------------
+```{=html}
+<style>
+body {
+  background-color: #eaf5ea;
+}
+</style>
+```
+
+::: {style="text-align: center;"}
+<img src="images/Newstart.jpeg" style="width:100%;max-width:700px;height:250px;object-fit:cover;border-radius:12px;"/>
+
+# My Journey
+:::
+
+---
 
 Helping people has always been a central part of who I am. I've been drawn to sociology for its ability to explain how social norms, values, and beliefs shape the way people and groups function within society. That interest gave me a strong foundation for understanding behavior, problem solving, and the human side of organizational work.
 
