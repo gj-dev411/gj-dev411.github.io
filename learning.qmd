@@ -2,6 +2,14 @@
 title: "Learning Progress"
 ---
 
+```{=html}
+<style>
+body {
+  background-color: #eaf5ea;
+}
+</style>
+```
+
 Below is a record of R exercises I've worked through, shown in the order completed.I worked through each issue systematically, checking the data before and after each fix, using both base R and tidyverse approaches.
 
 ```{r setup, include=FALSE}
