@@ -1,0 +1,124 @@
+---
+title: "Entry 2: Survey Data Cleaning — RespondentID, Age_Group, Satisfaction, and Would_Recommend"
+---
+
+```{=html}
+<style>
+body {
+  background-color: #eaf5ea;
+}
+</style>
+```
+
+This exercise cleaned a survey dataset across four columns, each with a different kind of issue: missing values and duplication in RespondentID, spacing inconsistencies in Age_Group, missing values in Satisfaction, and spacing, case, and missing values together in Would_Recommend. I worked through it first in base R, then repeated the same exercise in tidyverse to compare approaches.
+
+```{r setup, include=FALSE}
+survey <- data.frame(
+  RespondentID = c("R1","R2","R2","R4","R5","R6","R7","R8","R9", NA,"R10","R11","R12","R13","R14","R15","R16","R17","R18",NA),
+  Age_Group = c("18-24","25-34","25-34","35-44","18 - 24","45 - 54","18-24","25-34","35-44","25-34","18-24","25-34","25-34","35-44","18 - 24","45 - 54","18-24","25-34","35-44","25-34"),
+  Satisfaction = c("5","4","4","3","5", NA, "2","4","3","4","5","4","4","3","5", NA, "2","4","3","4"),
+  Would_Recommend = c("yes","YES"," YES  ","no ","YES ","no  ","YES","no", NA,"yes ","yes","YES"," YES ","NO","No","no","YES","no", NA,"yes "),
+  stringsAsFactors = FALSE
+)
+
+library(tidyverse)
+```
+
+```{r}
+# preview the raw, uncleaned data
+survey
+```
+
+```{r}
+#inspect the dataset before cleaning
+glimpse(survey)
+colSums(is.na(survey))
+survey[!complete.cases(survey), ]
+```
+
+## Base R Version
+
+### Cleaning: "RespondentID" for Missing Values and Duplication
+
+```{r}
+#view the data
+unique(survey$RespondentID)
+
+#confirm count of missing data
+sum(is.na(survey$RespondentID))
+
+#removed rows with missing RespondentID values
+RespondentID_cleaned <- survey[!is.na(survey$RespondentID), ]
+
+#verified that it worked
+RespondentID_cleaned
+
+#confirming the frequency of the duplication
+table(survey$RespondentID)
+
+#removed occurrence of missing values and duplication together
+RespondentIDdup_cleaned <- survey[!is.na(survey$RespondentID) & !duplicated(survey$RespondentID), ]
+
+#verified that it worked
+RespondentIDdup_cleaned
+```
+
+### Cleaning: "Age_Group" for Spacing Inconsistencies
+
+```{r}
+#view the unique values
+unique(survey$Age_Group)
+
+#removed the spacing
+survey$Age_Group <- str_squish(str_trim(survey$Age_Group))
+
+#spacing inconsistencies around the hyphen still remained, so gsub was used to correct them
+survey$Age_Groupcl <- gsub(" - ", "-", survey$Age_Group)
+
+#verify that it worked
+survey$Age_Groupcl
+```
+
+### Cleaning: "Satisfaction" for Missing Values
+
+```{r}
+#view the unique values
+unique(survey$Satisfaction)
+
+#count the number of missing values
+sum(is.na(survey$Satisfaction))
+
+#removed the missing values
+survey_Satisfactioncl <- survey[!is.na(survey$Satisfaction), ]
+
+#verified that it worked
+survey_Satisfactioncl
+```
+
+### Cleaning: "Would_Recommend" for Spacing, Case, and Missing Values
+
+```{r}
+#view all the unique values
+unique(survey$Would_Recommend)
+
+#removed the spacing inconsistencies, then built on that cleaned version
+#to add case correction, rather than creating a separate variable at each step
+survey$Would_Recommend_cl <- str_trim(survey$Would_Recommend)
+survey$Would_Recommend_cl <- tolower(survey$Would_Recommend_cl)
+
+#checked missing values on the cleaned column
+sum(is.na(survey$Would_Recommend_cl))
+
+#removed the missing values
+survey <- survey[!is.na(survey$Would_Recommend_cl), ]
+
+#verified that it worked
+sum(is.na(survey$Would_Recommend_cl))
+survey$Would_Recommend_cl
+```
+
+## **What this showed me:**
+
+Partway through cleaning the Would_Recommend column, I noticed I kept creating a new, separately labeled variable at every single step instead of building on the version I had just cleaned. It worked, but it was harder to follow and not actually necessary. Once I recognized that, I pivoted to cleaning one column progressively: trimming spacing, then building directly on that result to fix case, then building on that result again to handle missing values, instead of relabeling at every step. That shift made the logic easier to follow and set up the same thinking I needed for writing clean pipe chains in tidyverse.
+
+I also learned an important distinction while cleaning RespondentID: removing values, like missing data or duplicates, is different from transforming values, like trimming or changing case. A transformation can be assigned back into a single column, but removing entries actually removes whole rows, so the result has to be assigned back into the full data frame, not just one column, since every column in a data frame has to stay the same length.

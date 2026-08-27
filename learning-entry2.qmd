@@ -1,0 +1,136 @@
+---
+title: "Entry 1: df2 Data Cleaning — Case, Spacing, and Missing Data"
+---
+
+```{=html}
+<style>
+body {
+  background-color: #eaf5ea;
+}
+</style>
+```
+
+This exercise cleaned a student dataset across three columns: name, final_score, and passed. Rather than treating every missing value the same way, I worked through each column individually and documented the reasoning behind each decision, using both base R and tidyverse approaches.
+
+```{r setup, include=FALSE}
+df2 <- data.frame(
+  student_id = 101:110,
+  name = c("Ava", "Noah", NA, "mia", "Leo", "Zoe", NA, "Eli", "chloe", "sam"),
+  final_score = c(88, NA, 92, 75, 81, NA, 84, 90, NA, 86),
+  passed = c("yes", "no", NA, "yes", "yes", "no", NA, "yes", "no", "yes"),
+  stringsAsFactors = FALSE
+)
+
+library(tidyverse)
+```
+
+```{r}
+# preview the raw, uncleaned data
+df2
+```
+
+```{r}
+# data inspection
+str(df2)
+colSums(is.na(df2))
+```
+
+## Base R Version
+
+### Cleaning: "name" — Case and Spacing, Missing Values Left As-Is
+
+```{r}
+unique(df2$name)
+unique(trimws(df2$name)) #checks for space inconsistencies 
+df2$name <- trimws(df2$name) #removes the white space
+df2$name <- str_to_title(df2$name) #convert all names to title case
+#Verify that it worked
+unique(df2$name)
+```
+
+**Decision: name left as NA (2 missing values)**
+
+Decision: name left as NA (2 missing values)
+
+Rationale: name functions as an identifier, but it cannot be reasonably estimated. There is no representative "average" or "typical" name to impute, unlike a numeric column. A placeholder was considered but rejected, since it would add no analytical value here. Because student_id is complete with no missing values, every row, including these two, remains fully identifiable and traceable by ID, even without a name. Leaving name as NA preserves the row's other valid data (score, passed) while staying transparent that the name specifically was not recorded.
+
+Limitation: any results reporting a person's name (for example, who had the top score) should note that 2 respondents cannot be identified by name, though they remain identifiable by student_id.
+
+### Cleaning: "final_score" — Imputation
+
+```{r}
+#Clean the final_score column removing the missing values and replace with zero
+df2$final_score[is.na(df2$final_score)] <- 0
+#verify that it worked
+df2$final_score
+sum(is.na(df2$final_score))
+df2
+```
+
+Note: after reviewing all parts of the data frame, information from the passed column was used to determine that replacing NA with zero was a sound decision, given that the student did not pass.
+
+### Cleaning: "passed" — Case and Missing Values
+
+```{r}
+unique(df2$passed)
+unique(trimws(df2$passed))  #checks for spacing inconsistencies 
+df2$passed <-trimws(df2$passed) #removes the white spaces
+df2$passed <- str_to_title(df2$passed) #convert all names to title case
+df2$passed[is.na(df2$passed)] <- "yes" 
+#verify that it worked
+df2$passed
+sum(is.na(df2$passed))
+df2
+```
+
+Note: after reviewing all parts of the data frame, information from the final_score column was used to predict and apply "yes" to the passed column based on the score.
+
+## **What this showed me:**
+
+Cleaning this dataset made clear that missing values don't all deserve the same treatment. A missing name has no reasonable estimate. There's no "typical" name to fall back on, so it was left as NA and documented as a limitation. But final_score and passed could actually inform each other: knowing a student's outcome (passed = no) supported treating a missing score as 0, and knowing the score supported inferring the outcome where passed was missing. Making that connection between columns, rather than treating each one in isolation, was the more meaningful decision here than the mechanics of the cleaning code itself.
+
+## Tidyverse Version
+
+To compare approaches, I repeated the same exercise using tidyverse syntax instead of base R.
+
+### Cleaning: "name" — Case and Spacing, Missing Values Left As-Is
+
+```{r}
+unique(df2$name) #view the unique values
+unique(trimws(df2$name)) #run to check for case and space inconsistencies
+df2$name <- df2$name %>%  # now correct case and spacing
+  trimws() %>%
+  str_to_title()
+#verify that it worked
+unique(df2$name)
+```
+
+Note: name is left as NA, for the same reasoning documented in the base R version above.
+
+### Cleaning: "final_score" — Imputation
+
+```{r}
+unique(df2$final_score) #view the unique data
+df2 <- df2 %>%
+  mutate(final_score = replace_na(final_score, 0)) #imputation with 0
+#verify that it worked
+df2
+```
+
+Note: imputation with 0 based on the other information found in the passed column.
+
+### Cleaning: "passed" — Case and Missing Values
+
+```{r}
+unique(df2$passed) # view the unique data
+unique(trimws(df2$passed)) #check for case and spacing inconsistencies 
+df2$passed <- df2$passed %>%  # remove case and spacing inconsistencies
+  trimws() %>%
+  str_to_title()
+df2 <- df2 %>%
+  mutate(passed = replace_na(passed, "Yes")) #replace with "yes"
+#verified that it worked
+df2
+```
+
+Note: imputation with "Yes" based on the other information found in the final_score column.

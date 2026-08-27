@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -155,20 +120,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#entry-1-df2-data-cleaning-case-spacing-and-missing-data" id="toc-entry-1-df2-data-cleaning-case-spacing-and-missing-data" class="nav-link active" data-scroll-target="#entry-1-df2-data-cleaning-case-spacing-and-missing-data">Entry 1: df2 Data Cleaning: Case, Spacing, and Missing Data</a>
-  <ul class="collapse">
-  <li><a href="#cleaning-name-column-for-case-spacing-and-missing-data" id="toc-cleaning-name-column-for-case-spacing-and-missing-data" class="nav-link" data-scroll-target="#cleaning-name-column-for-case-spacing-and-missing-data">Cleaning: “Name” Column for Case, Spacing, and, Missing Data</a></li>
-  <li><a href="#cleaning-final_score-column-for-distinct-values-and-missing-data" id="toc-cleaning-final_score-column-for-distinct-values-and-missing-data" class="nav-link" data-scroll-target="#cleaning-final_score-column-for-distinct-values-and-missing-data">Cleaning: “final_score” Column for Distinct Values, and Missing data</a></li>
-  <li><a href="#cleaning-passed-column-for-case-spacing-and-missing-data" id="toc-cleaning-passed-column-for-case-spacing-and-missing-data" class="nav-link" data-scroll-target="#cleaning-passed-column-for-case-spacing-and-missing-data">Cleaning: “passed” Column for Case, Spacing, and, Missing Data</a></li>
-  </ul></li>
-  <li><a href="#what-this-showed-me" id="toc-what-this-showed-me" class="nav-link" data-scroll-target="#what-this-showed-me"><strong>What this showed me:</strong></a></li>
-  <li><a href="#same-task-tidyverse-version" id="toc-same-task-tidyverse-version" class="nav-link" data-scroll-target="#same-task-tidyverse-version"><strong>Same Task:</strong> Tidyverse Version</a></li>
-  <li><a href="#entry-2-df2-data-cleaning-case-spacing-and-missing-data" id="toc-entry-2-df2-data-cleaning-case-spacing-and-missing-data" class="nav-link" data-scroll-target="#entry-2-df2-data-cleaning-case-spacing-and-missing-data">Entry 2: df2 Data Cleaning: Case, Spacing, and Missing Data</a>
-  <ul class="collapse">
-  <li><a href="#cleaning-name-column-for-case-spacing-and-missing-data-1" id="toc-cleaning-name-column-for-case-spacing-and-missing-data-1" class="nav-link" data-scroll-target="#cleaning-name-column-for-case-spacing-and-missing-data-1">Cleaning: “Name” Column for Case, Spacing, and, Missing Data</a></li>
-  <li><a href="#cleaning-final_score-column-for-distinct-values-and-missing-data-1" id="toc-cleaning-final_score-column-for-distinct-values-and-missing-data-1" class="nav-link" data-scroll-target="#cleaning-final_score-column-for-distinct-values-and-missing-data-1">Cleaning: “final_score” Column for Distinct Values, and Missing data</a></li>
-  <li><a href="#cleaning-passed-column-for-case-spacing-and-missing-data-1" id="toc-cleaning-passed-column-for-case-spacing-and-missing-data-1" class="nav-link" data-scroll-target="#cleaning-passed-column-for-case-spacing-and-missing-data-1">Cleaning: “passed” Column for Case, Spacing, and, Missing Data</a></li>
-  </ul></li>
+  <li><a href="#entry-1-df2-data-cleaning-case-spacing-and-missing-data" id="toc-entry-1-df2-data-cleaning-case-spacing-and-missing-data" class="nav-link active" data-scroll-target="#entry-1-df2-data-cleaning-case-spacing-and-missing-data">Entry 1: df2 Data Cleaning — Case, Spacing, and Missing Data</a></li>
+  <li><a href="#entry-2-survey-data-cleaning-respondentid-age_group-satisfaction-and-would_recommend" id="toc-entry-2-survey-data-cleaning-respondentid-age_group-satisfaction-and-would_recommend" class="nav-link" data-scroll-target="#entry-2-survey-data-cleaning-respondentid-age_group-satisfaction-and-would_recommend">Entry 2: Survey Data Cleaning — RespondentID, Age_Group, Satisfaction, and Would_Recommend</a></li>
   </ul>
 </nav>
     </div>
@@ -199,215 +152,16 @@ body {
   background-color: #eaf5ea;
 }
 </style>
-<p>Below is a record of R exercises I’ve worked through, shown in the order completed.I worked through each issue systematically, checking the data before and after each fix, using both base R and tidyverse approaches.</p>
-<hr>
+<p>Below is a record of R exercises I’ve worked through, in the order completed. Each entry is its own page, with the data cleaned systematically — checking before and after each fix, using both base R and tidyverse approaches.</p>
 <section id="entry-1-df2-data-cleaning-case-spacing-and-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="entry-1-df2-data-cleaning-case-spacing-and-missing-data">Entry 1: df2 Data Cleaning: Case, Spacing, and Missing Data</h2>
-<p><strong>Task:</strong> This df2 dataset had several common real-world data issues at once:inconsistent capitalization, and spacing at data entry and, missing respondent data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preview the raw, uncleaned data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   student_id  name final_score passed
-1         101   Ava          88    yes
-2         102  Noah          NA     no
-3         103  &lt;NA&gt;          92   &lt;NA&gt;
-4         104   mia          75    yes
-5         105   Leo          81    yes
-6         106   Zoe          NA     no
-7         107  &lt;NA&gt;          84   &lt;NA&gt;
-8         108   Eli          90    yes
-9         109 chloe          NA     no
-10        110   sam          86    yes</code></pre>
-</div>
-</div>
-<section id="cleaning-name-column-for-case-spacing-and-missing-data" class="level3">
-<h3 class="anchored" data-anchor-id="cleaning-name-column-for-case-spacing-and-missing-data">Cleaning: “Name” Column for Case, Spacing, and, Missing Data</h3>
-<p>Before cleaning anything, I first inspected the “name” column for case and spacing inconsistencies,then removed any occurrences. similarly, I used the same approach after having observed the missing values.those occurrences were excluded from the data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#checked for case and space inconsistencies</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">trimws</span>(<span class="fu">tolower</span>(df2<span class="sc">$</span>name)))   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ava"   "noah"  NA      "mia"   "leo"   "zoe"   "eli"   "chloe" "sam"  </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#converted all names to title case</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(df2<span class="sc">$</span>name) </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#removed white spacing</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">trimws</span>(df2<span class="sc">$</span>name) </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Verified that it worked</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df2<span class="sc">$</span>name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Ava"   "Noah"  NA      "Mia"   "Leo"   "Zoe"   "Eli"   "Chloe" "Sam"  </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed missing values</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df2_cleanone <span class="ot">&lt;-</span> df2[<span class="sc">!</span><span class="fu">is.na</span>(df2<span class="sc">$</span>name), ]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#verified that it worked</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df2_cleanone</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   student_id  name final_score passed
-1         101   Ava          88    yes
-2         102  Noah          NA     no
-4         104   Mia          75    yes
-5         105   Leo          81    yes
-6         106   Zoe          NA     no
-8         108   Eli          90    yes
-9         109 Chloe          NA     no
-10        110   Sam          86    yes</code></pre>
-</div>
-</div>
+<h2 class="anchored" data-anchor-id="entry-1-df2-data-cleaning-case-spacing-and-missing-data"><a href="./learning-entry1.html">Entry 1: df2 Data Cleaning — Case, Spacing, and Missing Data</a></h2>
+<p>Cleaned a student dataset across three columns (name, final_score, passed), each with case, spacing, or missing-value issues.</p>
 </section>
-<section id="cleaning-final_score-column-for-distinct-values-and-missing-data" class="level3">
-<h3 class="anchored" data-anchor-id="cleaning-final_score-column-for-distinct-values-and-missing-data">Cleaning: “final_score” Column for Distinct Values, and Missing data</h3>
-<p>When cleaning the “final_score” column I did not check for case or space inconsistencies as I used natural visual inspection and determined to only view the uniqueness of the data and to remove the missing values.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#viewed the distinct values</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df2<span class="sc">$</span>final_score) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 88 NA 92 75 81 84 90 86</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed missing values</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df2_cleanthree <span class="ot">&lt;-</span> df2[<span class="sc">!</span><span class="fu">is.na</span>(df2<span class="sc">$</span>final_score), ]</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#verified that it worked</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df2_cleanthree</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   student_id name final_score passed
-1         101  Ava          88    yes
-3         103 &lt;NA&gt;          92   &lt;NA&gt;
-4         104  Mia          75    yes
-5         105  Leo          81    yes
-7         107 &lt;NA&gt;          84   &lt;NA&gt;
-8         108  Eli          90    yes
-10        110  Sam          86    yes</code></pre>
-</div>
-</div>
-</section>
-<section id="cleaning-passed-column-for-case-spacing-and-missing-data" class="level3">
-<h3 class="anchored" data-anchor-id="cleaning-passed-column-for-case-spacing-and-missing-data">Cleaning: “passed” Column for Case, Spacing, and, Missing Data</h3>
-<p>Before cleaning anything, I first inspected the “passed” column for case and spacing inconsistencies,then removed any occurrences. similarly, I used the same approach after having observed the missing values.those occurrences were excluded from the data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#checked for case and spacing inconsistencies</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">trimws</span>(<span class="fu">tolower</span>(df2<span class="sc">$</span>passed)))   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "yes" "no"  NA   </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#converted all names to title case</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>passed <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(df2<span class="sc">$</span>passed) </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># removed white spacing</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>passed <span class="ot">&lt;-</span> <span class="fu">trimws</span>(df2<span class="sc">$</span>passed) </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#removed missing values</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>df2_clpass <span class="ot">&lt;-</span> df2[<span class="sc">!</span><span class="fu">is.na</span>(df2<span class="sc">$</span>passed), ] </span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Verified that it worked</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>df2_clpass</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   student_id  name final_score passed
-1         101   Ava          88    Yes
-2         102  Noah          NA     No
-4         104   Mia          75    Yes
-5         105   Leo          81    Yes
-6         106   Zoe          NA     No
-8         108   Eli          90    Yes
-9         109 Chloe          NA     No
-10        110   Sam          86    Yes</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="what-this-showed-me" class="level2">
-<h2 class="anchored" data-anchor-id="what-this-showed-me"><strong>What this showed me:</strong></h2>
-<p>Data cleaning is a crucial part of working with any dataset, and it should be done thoughtfully to support stronger analysis later. Even though this was only a practice dataset focused on systematically cleaning each column, it also made me think more carefully about how I would analyze the data afterward and what story it might tell.</p>
-</section>
-<section id="same-task-tidyverse-version" class="level2">
-<h2 class="anchored" data-anchor-id="same-task-tidyverse-version"><strong>Same Task:</strong> Tidyverse Version</h2>
-<p>To compare approaches, I repeated the same exercise using tidyverse syntax instead of base R.</p>
-<hr>
-</section>
-<section id="entry-2-df2-data-cleaning-case-spacing-and-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="entry-2-df2-data-cleaning-case-spacing-and-missing-data">Entry 2: df2 Data Cleaning: Case, Spacing, and Missing Data</h2>
-<p><strong>Task:</strong> This df2 dataset had several common real-world data issues at once:inconsistent capitalization, and spacing at data entry and, missing respondent data.</p>
-<section id="cleaning-name-column-for-case-spacing-and-missing-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="cleaning-name-column-for-case-spacing-and-missing-data-1">Cleaning: “Name” Column for Case, Spacing, and, Missing Data</h3>
-<p>Before cleaning anything, I first inspected the “name” column for case and spacing inconsistencies,then removed any occurrences. similarly, I used the same approach after having observed the missing values.those occurrences were excluded from the data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#checked for case and space inconsistencies</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">trimws</span>(<span class="fu">tolower</span>(df2<span class="sc">$</span>name)))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ava"   "noah"  NA      "mia"   "leo"   "zoe"   "eli"   "chloe" "sam"  </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#corrected case and spacing</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>name <span class="ot">&lt;-</span> df2<span class="sc">$</span>name <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trimws</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_to_title</span>()</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#verify that it worked</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df2<span class="sc">$</span>name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Ava"   "Noah"  NA      "Mia"   "Leo"   "Zoe"   "Eli"   "Chloe" "Sam"  </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed missing data</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df2_cleantwo <span class="ot">&lt;-</span>df2 <span class="sc">%&gt;%</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(name))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#verified that it worked</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>df2_cleantwo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  student_id  name final_score passed
-1        101   Ava          88    Yes
-2        102  Noah          NA     No
-3        104   Mia          75    Yes
-4        105   Leo          81    Yes
-5        106   Zoe          NA     No
-6        108   Eli          90    Yes
-7        109 Chloe          NA     No
-8        110   Sam          86    Yes</code></pre>
-</div>
-</div>
-</section>
-<section id="cleaning-final_score-column-for-distinct-values-and-missing-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="cleaning-final_score-column-for-distinct-values-and-missing-data-1">Cleaning: “final_score” Column for Distinct Values, and Missing data</h3>
-<p>When cleaning the “final_score” column I did not check for case or space inconsistencies as I used natural visual inspection and determined to only view remove the missing values.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed missing values</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df2_cleanthree <span class="ot">&lt;-</span> df2 <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(final_score))</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#verify that it worked</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>df2_cleanthree</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  student_id name final_score passed
-1        101  Ava          88    Yes
-2        103 &lt;NA&gt;          92   &lt;NA&gt;
-3        104  Mia          75    Yes
-4        105  Leo          81    Yes
-5        107 &lt;NA&gt;          84   &lt;NA&gt;
-6        108  Eli          90    Yes
-7        110  Sam          86    Yes</code></pre>
-</div>
-</div>
-</section>
-<section id="cleaning-passed-column-for-case-spacing-and-missing-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="cleaning-passed-column-for-case-spacing-and-missing-data-1">Cleaning: “passed” Column for Case, Spacing, and, Missing Data</h3>
-<p>Before cleaning anything, I first inspected the “passed” column for case and spacing inconsistencies,then removed any occurrences. similarly, I used the same approach after having observed the missing values.those occurrences were also excluded from the data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checked for case and space inconsistencies</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">trimws</span>(<span class="fu">tolower</span>(df2<span class="sc">$</span>passed)))    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "yes" "no"  NA   </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed missing values</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df2_clpass <span class="ot">&lt;-</span> df2 <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">passed =</span> <span class="fu">trimws</span>(passed) <span class="sc">%&gt;%</span> <span class="fu">str_to_title</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(passed))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section id="entry-2-survey-data-cleaning-respondentid-age_group-satisfaction-and-would_recommend" class="level2">
+<h2 class="anchored" data-anchor-id="entry-2-survey-data-cleaning-respondentid-age_group-satisfaction-and-would_recommend"><a href="./learning-entry2.html">Entry 2: Survey Data Cleaning — RespondentID, Age_Group, Satisfaction, and Would_Recommend</a></h2>
+<p>Cleaned a survey dataset across four columns, including missing values, duplication, and a mid-exercise pivot from relabeling each step separately to building a connected chain of fixes.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
