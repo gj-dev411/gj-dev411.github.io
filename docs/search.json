@@ -21,11 +21,11 @@
     "text": "Entry 2: Survey Data Cleaning — RespondentID, Age_Group, Satisfaction, and Would_Recommend\nCleaned a survey data set across four columns, including missing values, duplication, and a mid-exercise pivot from relabeling each step separately to building a connected chain of fixes."
   },
   {
-    "objectID": "learning.html#entry-3-customer-data-cleaning---customer_name-order_id-order_date-email-learning-entry3.qmd",
-    "href": "learning.html#entry-3-customer-data-cleaning---customer_name-order_id-order_date-email-learning-entry3.qmd",
+    "objectID": "learning.html#entry-3-customer-data-cleaning-customer_name-order_id-order_date-and-email",
+    "href": "learning.html#entry-3-customer-data-cleaning-customer_name-order_id-order_date-and-email",
     "title": "Learning Progress",
-    "section": "[Entry 3: Customer Data Cleaning - Customer_name, Order_id, Order_date, Email] (learning-entry3.qmd)",
-    "text": "[Entry 3: Customer Data Cleaning - Customer_name, Order_id, Order_date, Email] (learning-entry3.qmd)\nCleaned a customer data set across four columns, including case,spacing,and missing value issues."
+    "section": "Entry 3: Customer Data Cleaning — Customer_name, Order_id, Order_date, and Email",
+    "text": "Entry 3: Customer Data Cleaning — Customer_name, Order_id, Order_date, and Email\nCleaned a customer data set across four columns, including case,spacing,and missing value issues."
   },
   {
     "objectID": "learning-entry2.html",
