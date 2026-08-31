@@ -14,8 +14,12 @@ Below is a record of R exercises I've worked through, in the order completed. Ea
 
 ## [Entry 1: df2 Data Cleaning — Case, Spacing, and Missing Data](learning-entry1.qmd)
 
-Cleaned a student dataset across three columns (name, final_score, passed), each with case, spacing, or missing-value issues.
+Cleaned a student data set across three columns (name, final_score, passed), each with case, spacing, or missing-value issues.
 
 ## [Entry 2: Survey Data Cleaning — RespondentID, Age_Group, Satisfaction, and Would_Recommend](learning-entry2.qmd)
 
-Cleaned a survey dataset across four columns, including missing values, duplication, and a mid-exercise pivot from relabeling each step separately to building a connected chain of fixes.
+Cleaned a survey data set across four columns, including missing values, duplication, and a mid-exercise pivot from relabeling each step separately to building a connected chain of fixes.
+
+## [Entry 3: Customer Data Cleaning - Customer_name, Order_id, Order_date, Email] (learning-entry3.qmd) 
+
+Cleaned a customer data set across four columns, including case,spacing,and missing value issues.

@@ -1,0 +1,172 @@
+---
+title: "Entry 3: Data Cleaning - Case, Spacing, Missing Data " 
+---
+
+```{=html}
+<style>
+body {
+  background-color: #eaf5ea;
+}
+</style>
+```
+
+This exercise cleaned a customer data set across four columns: customer_name, order_id, order_date, and email. Rather than treating every missing value the same way, I worked through each column individually and documented the reasoning behind each decision, using both base R and tidyverse approaches.
+
+```{r setup, include=FALSE}
+df_fmt1 <- data.frame(
+  customer_name = c("Alice", "alex ", "  BOB", "nathan", "Charlie", " blake","Mark","David","James","Tom","Bill","Joe" ),
+  order_id = c("A1","A2","A3","A4 ","A5 ","A6","A7","A9","A10 ","A11","A12 ","A13" ),
+  order_date = c("2026-01-05", "01/06/2026", "2026/01/07",
+                 "2026-01-08", "06-01-2026", "2026-01-10","2026-01-09", "01/12/2026", "2026/01/17",
+                 "2026-01-08", "06-01-2026", "2026-01-10"),
+  email = c("a@example.com", "a2@example.com", "b@example.com","k@example.com","x@example.com","k2@example.com","y4example.com","g1@example.com","pp@example.com",
+            "b2@example.com", "c@example.com", "c2@example.com"),
+  stringsAsFactors = FALSE
+)
+
+library(lubridate)
+library (tidyverse)
+library(validate)
+
+```
+
+```{r}
+#perview the raw, uncleaned data
+df_fmt1
+```
+
+```{r}
+#data inspection
+dim(df_fmt1)
+names(df_fmt1)
+str(df_fmt1)
+head(df_fmt1)
+summary(df_fmt1)
+
+```
+
+## **Base R Version**
+
+### Cleaning: "customer_name" — Case and Spacing Inconsistency
+
+```{r}
+unique((df_fmt1$customer_name)) #display unique value of column
+unique(trimws(df_fmt1$customer_name)) #display inconsistencies with values
+df_fmt1$customer_name <- trimws(df_fmt1$customer_name) #removes white spaces
+df_fmt1$customer_name <- str_replace_all(df_fmt1$customer_name,"\\s*-\\s*", "-") #removes extra spacing
+df_fmt1$customer_name <- str_to_title(df_fmt1$customer_name) #coverts text to proper casing
+#verify that it worked
+unique(df_fmt1$customer_name)
+#run full data frame
+df_fmt1
+```
+
+### Cleaning: "order_id" — Spacing Inconsistency
+
+```{r}
+unique(trimws(df_fmt1$order_id)) # displays inconsistencies with spacing
+df_fmt1$order_id <- trimws(df_fmt1$order_id) # removes white spaces
+df_fmt1$order_id <- str_replace_all(df_fmt1$order_id,"\\s*-\\s*", "-") #removes extra spacing- makes it uniform
+#verify that it worked
+unique(df_fmt1$order_id)
+#run full data frame
+df_fmt1
+
+```
+
+### Cleaning: "order_date — Covert Using Parsing
+
+```{r}
+unique(df_fmt1$order_date)# display the unique value of column
+df_fmt1$order_date <- parse_date_time(df_fmt1$order_date,
+                                      orders = c("ymd","mdy","dmy") #gives a proper date
+                                      
+)
+
+df_fmt1$order_date <- as.Date(df_fmt1$order_date) #Converts to Date class
+#verify that it worked
+df_fmt1$order_date
+#Create a formatted display version
+df_fmt1$order_date_formatted <-format(df_fmt1$order_date,"%m-%d-%Y")
+#run full data frame
+df_fmt1
+```
+
+I parsed the date column using multiple possible formats so that values would be recognized correctly as dates. After converting the text into proper "Date" object, I verified the result and formatted the output for display using format(). This allowed me to keep the dates usable for analysis while also showing them in the m/d/Y style when needed.
+
+### Cleaning: "email — Covert Invalid email to Valid email Format
+
+```{r}
+unique(df_fmt1$email) #display the unique values
+df_fmt1[!grepl("@", df_fmt1$email), ] # to view rows that are missing @ sign
+df_fmt1$email[df_fmt1$email == "y4example.com"] <- "y4@example.com" # to add the @ sign 
+#verify that it worked
+df_fmt1$email
+#run full data frame
+df_fmt1
+
+```
+
+Initially, I ran df_fmt1\$email \[df_fmt1\$email == "y4example.com\@"\] \<- "y4\@example.com" and saw no change int he data frame because R could not find the exact match for"y4example.com\@". After reviewing the data, I identified the correct value in the data frame and replace it.
+
+## **What this showed me:**
+
+I had to covert standardized data text into actual data objects after parsing multiple formats, then format them with format(df\$variable, "%d-%m\_%Y") for analysis and display".
+
+## Tidyverse Version
+
+To compare approaches, I repeated the same exercise using tidyverse syntax instead of base R.
+
+### Cleaning: "customer_name" — Case and Spacing Inconsistency
+
+```{r}
+unique(df_fmt1$customer_name) # viewing the unique values
+df_fmt1 <- df_fmt1 %>%
+  mutate(customer_name = customer_name %>%
+           str_trim() %>%
+           str_to_title())
+#verify that it worked
+df_fmt1
+```
+
+### Cleaning: "order_id" — Spacing Inconsistency
+
+```{r}
+unique(df_fmt1$order_id) # view the unique values
+df_fmt1 <- df_fmt1 %>%
+  mutate(order_id = order_id %>%
+           str_trim() %>%
+           str_squish())
+#verify that it worked
+df_fmt1
+```
+
+### Cleaning: "order_date — Covert Using Parsing
+
+```{r}
+unique(df_fmt1$order_date) #view the unique values
+df_fmt1 <- df_fmt1 %>%
+  mutate(order_date = order_date %>%
+           parse_date_time(order = c("ymd","mdy","dmy")))
+#verify that it worked
+df_fmt1$order_date
+#Create a formatted display version
+df_fmt1$order_date_formatted <-format(df_fmt1$order_date,"%m-%d-%Y")
+#run full data frame
+df_fmt1
+```
+
+### Cleaning: "email — Covert Invalid email to Valid email Format
+
+```{r}
+unique(df_fmt1$email)
+df_fmt1 <- df_fmt1 %>%
+  mutate(email = ifelse(email == "y4example.com", "y4@example.com", email)) 
+#verify that it worked
+df_fmt1
+
+```
+
+## **What this showed me:**
+
+While cleaning data, I learned that different formats and methods can be used to achieve the needed data manipulation for interpretation. Through this process, I also learned that Tidyverse provides a shorter and easier way to work, especially when the pipe operators.
