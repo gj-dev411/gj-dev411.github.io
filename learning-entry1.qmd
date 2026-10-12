@@ -10,7 +10,7 @@ body {
 </style>
 ```
 
-This exercise cleaned a survey dataset across four columns, each with a different kind of issue: missing values and duplication in RespondentID, spacing inconsistencies in Age_Group, missing values in Satisfaction, and spacing, case, and missing values together in Would_Recommend. I worked through it first in base R, then repeated the same exercise in tidyverse to compare approaches.
+This exercise cleaned a survey data set across four columns, each with a different kind of issue: missing values and duplication in RespondentID, spacing inconsistencies in Age_Group, missing values in Satisfaction, and spacing, case, and missing values together in Would_Recommend. I worked through it first in base R, then repeated the same exercise in tidyverse to compare approaches.
 
 ```{r setup, include=FALSE}
 survey <- data.frame(

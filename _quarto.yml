@@ -3,15 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "Home"
+  title: "Portfolio"
   navbar:
-    left:
+    background: "#1c4a38"
+    foreground: white
+    right:
       - href: index.qmd
         text: Home
       - href: about.qmd
         text: About
+      - href: blog.qmd
+        text: Blog
       - href: learning.qmd
-        text: Learning Progress
+        text: Portfolio
 
 format:
   html:
@@ -22,4 +26,3 @@ format:
     toc: true
 
 editor: visual
-

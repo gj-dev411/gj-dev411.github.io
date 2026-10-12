@@ -10,7 +10,7 @@ body {
 </style>
 ```
 
-Below is a record of R exercises I've worked through, in the order completed. Each entry is its own page, with the data cleaned systematically — checking before and after each fix, using both base R and tidyverse approaches.
+Below is a record of R cleaning exercises I've worked through, in the order completed. Each entry is its own page, with the data cleaned systematically — checking before and after each fix, using both base R and tidyverse approaches.
 
 ## [Entry 1: df2 Data Cleaning — Case, Spacing, and Missing Data](learning-entry1.qmd)
 
@@ -20,6 +20,6 @@ Cleaned a student data set across three columns (name, final_score, passed), eac
 
 Cleaned a survey data set across four columns, including missing values, duplication, and a mid-exercise pivot from relabeling each step separately to building a connected chain of fixes.
 
-## [Entry 3: Customer Data Cleaning — Customer_name, Order_id, Order_date, and Email](learning-entry3.qmd) 
+## [Entry 3: Customer Data Cleaning — Customer_name, Order_id, Order_date, and Email](learning-entry3.qmd)
 
 Cleaned a customer data set across four columns, including case,spacing,and missing value issues.

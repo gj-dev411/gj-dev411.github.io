@@ -1,27 +1,62 @@
 ---
-title-block-banner: false
+title: "My Journey"
+pagetitle: "Gyna Jones | My Journey"
+toc: false
 ---
 
 ```{=html}
 <style>
-body {
-  background-color: #eaf5ea;
+.story-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+.story-row.reverse {
+  flex-direction: row-reverse;
+}
+.story-row > :first-child {
+  flex: 0 0 280px;
+  margin: 0;
+}
+.story-row .story-img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 6px 18px rgba(28, 74, 56, 0.15);
+}
+.story-row > :last-child {
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .story-row, .story-row.reverse {
+    flex-direction: column;
+  }
+  .story-row > :first-child {
+    flex: none;
+    width: 100%;
+  }
 }
 </style>
 ```
 
-::: {style="text-align: center;"}
-<img src="images/Newstart.jpeg" style="width:100%;max-width:700px;height:250px;object-fit:cover;border-radius:12px;"/>
+**Hi, I'm Gyna.**
 
-# My Journey
+::: {.story-row}
+![](images/journey-1.png){.story-img}
+
+Change is inevitable. As the world is changing to include AI - well, in this case it is already incorporated into our day-to-day lives and our work environments. And honestly, I'm here for it. I welcome the positive benefits that artificial intelligence contributes to the betterment of society and the human condition. Thus, after careful introspection of the best ways to use my knowledge and talent of human capital, business acumen, and pattern recognition; I pledge to collect and interpret data in a socially responsible way.
 :::
 
----
+::: {.story-row .reverse}
+![](images/journey-2.png){.story-img}
 
-Helping people has always been a central part of who I am. I've been drawn to sociology for its ability to explain how social norms, values, and beliefs shape the way people and groups function within society. That interest gave me a strong foundation for understanding behavior, problem solving, and the human side of organizational work.
+Research is not necessarily new to me but I took for granted the impact data collection has on decision making at both the micro and macro levels. Understanding that data collection - rather the interpretation of collected data is the catalyst that shapes commerce, marketing, and social policy; it's the driving force of how goods and services are now being rendered to the everyday person.
+:::
 
-Over time, I gained experience in on-boarding, training, and performance evaluation through HR adjacent roles, which gave me practical insight into how organizations support and develop their people. Business school further expanded my understanding of the business side of that work, while also highlighting a gap I wanted to close: building stronger research and analytic skills.
+::: {.story-row}
+![](images/journey-3.png){.story-img}
 
-My experience in contract roles over the past few years has shown me how much organizational structure and support can affect people's ability to do their best work. It also reinforced my desire to contribute in a more meaningful and informed way.
+This website is a reintroduction of research and data analysis but also a real time pivot in my career from direct implementation of services to provide direction for staff, identify gaps in training, and deliver service based outcomes, using tools such as R, SQL and Quarto. Learning data analysis using synthetic databases allows me to showcase the reasoning behind each decision, documented as I rebuild the skill from the ground up.
+:::
 
-I'm now actively developing my research skills and learning R so I can move from working around data to working with it directly. This site is where I document that journey: the ideas, the challenges, and the progress as I build something more aligned with the kind of work I want to do.
+My background is in sociology and HR-adjacent work. You can read more about that path on the [My Journey](about.qmd) page. This site itself is focused on the work: browse [Learning Progress](learning.qmd) to see what I've built so far and visit the Blog for my thoughts on real-world topics and my response to current events.

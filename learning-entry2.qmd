@@ -10,7 +10,7 @@ body {
 </style>
 ```
 
-This exercise cleaned a student dataset across three columns: name, final_score, and passed. Rather than treating every missing value the same way, I worked through each column individually and documented the reasoning behind each decision, using both base R and tidyverse approaches.
+This exercise cleaned a student data set across three columns: name, final_score, and passed. Rather than treating every missing value the same way, I worked through each column individually and documented the reasoning behind each decision, using both base R and tidyverse approaches.
 
 ```{r setup, include=FALSE}
 df2 <- data.frame(
