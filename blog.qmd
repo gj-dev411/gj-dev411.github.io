@@ -1,5 +1,11 @@
 ---
 title: "Blog"
+subtitle: "Thoughts on real-world topics and current events"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  fields: [image, date, title, description, categories]
+toc: false
 ---
-
-## Coming soon: my thoughts on real-world topics and current events.

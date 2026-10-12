@@ -1,0 +1,88 @@
+---
+title: "Welcome to the Blog"
+subtitle: "Real-world topics, current events, and the data behind them"
+date: "2026-10-12"
+image: header.png
+categories: [Welcome]
+description: "An introduction to what you'll find here and why I'm writing it."
+title-block-style: none
+toc: false
+---
+
+```{=html}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+#title-block-header {
+  display: none;
+}
+.post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1c4a38;
+  margin: 0 0 0.4rem;
+}
+.post-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2e8b63;
+  margin: 0 0 1.4rem;
+}
+.post-hero {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 6px 18px rgba(28, 74, 56, 0.15);
+}
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 1.3rem 0;
+}
+.byline-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.byline-name {
+  font-weight: 700;
+  margin: 0;
+}
+.byline-date {
+  color: #5c6f66;
+  font-size: 0.95rem;
+  margin: 0;
+}
+.post-divider {
+  border: 0;
+  border-top: 2px solid #2e8b63;
+  opacity: 0.4;
+  margin: 1.5rem 0 2rem;
+}
+</style>
+
+<h1 class="post-title">Welcome to the Blog</h1>
+<p class="post-subtitle">Real-world topics, current events, and the data behind them</p>
+
+<img class="post-hero" src="header.png" alt="Abstract green and yellow graphic">
+
+<div class="byline">
+  <img class="byline-img" src="../../images/opportunitydoor.jpeg" alt="Gyna Jones">
+  <div>
+    <p class="byline-name">Gyna Jones</p>
+    <p class="byline-date">October 12, 2026</p>
+  </div>
+</div>
+
+<hr class="post-divider">
+```
+
+Welcome! This is where I'll share my thoughts on real-world topics and respond to current events, looking at them through an analytical lens.
+
+*(Replace this paragraph with your own writing.)*
+---
