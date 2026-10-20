@@ -1,0 +1,116 @@
+---
+title: 'What Do These "isms" Mean?'
+subtitle: "Revisting Capitalism, Socialism, and Fascism"
+date: "2026-10-19"
+author: "Words by Gyna Jones"
+image: header.png
+categories: [politics]
+description: "Every election years political parties seek to appeal to voter through poltical rhetoric and domestic propanganda" 
+title-block-style: none
+toc: false
+---
+
+```{=html}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+#title-block-header {
+  display: none;
+}
+.post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1c4a38;
+  margin: 0 0 0.4rem;
+}
+.post-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2e8b63;
+  margin: 0 0 1.4rem;
+}
+.post-hero {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 6px 18px rgba(28, 74, 56, 0.15);
+}
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 1.3rem 0;
+}
+.byline-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.byline-name {
+  font-weight: 700;
+  margin: 0;
+}
+.byline-date {
+  color: #5c6f66;
+  font-size: 0.95rem;
+  margin: 0;
+}
+.post-divider {
+  border: 0;
+  border-top: 2px solid #2e8b63;
+  opacity: 0.4;
+  margin: 1.5rem 0 2rem;
+}
+</style>
+
+<h1 class="post-title">What Do These "isms" Mean?</h1>
+<p class="post-subtitle">Revisiting Capitalism, Socialism, and Fascism</p>
+
+<img class="post-hero" src="header.png" alt="Abstract green and yellow graphic">
+
+<div class="byline">
+  <img class="byline-img" src="../../images/opportunitydoor.jpeg" alt="Gyna Jones">
+  <div>
+    <p class="byline-name">WORDS BY GYNA JONES</p>
+    <p class="byline-date">October 19, 2026</p>
+  </div>
+</div>
+
+<hr class="post-divider">
+```
+
+**What Do These "isms" Mean?**
+
+*Revisiting Capitalism, Socialism, and Fascism*
+
+It’s that time again:elections. With the upcoming elections, parties positions and their ideologies take center stage. Elections will commence as early as Sept 13th in some states until November 3rd, 2026. And make no mistake, the terms Capitalism, Socialism, and Fascism will be on the minds of many voters as they decide who to cast their vote for. These terms have been buzzwords in the news, on campaign trails, and on social media. But what do these “isms” really mean? And will these ideologies impact the way people intend to vote. In “Guides to the Political Conflicts”: Donald Lazere defines Capitalism, Socialism, and Fascism as the following. 
+
+## Capitalism
+
+Capitalism – is an economy based on profit-seeking investments and resources obtained through labor of its productive population. The return on investments and resource management are the results of excess wealth and or poverty. This economic structure can be adapted alongside democracy, plutocracy, fascism, and even a dictatorship (286).
+
+## Socialism
+
+Socialism -  is an economic structure that functions on the cooperation of the productive majority to meet the needs of its people. This is obtained through a septum of governing bodies – federal, local, state governments, and local communities. This economy system can be adapted to both a democratic and or communist government (286).
+
+## Fascism
+
+Fascism – is an economic system based on private industry and state capitalism. This centralization of wealth and resources are the results of maintaining a ruling class and absolute power. This economy structure cannot be adapted to democracy and thrives under a dictatorship or communistic government (287).
+
+## Conclusion
+
+While these are just definitions of much deeper concepts, each, when implemented, has had lasting consequences when executed as an economic and or governing system. How will we vote? While that is a private decision, it is also our civil duty to become well versed in the history, the impact and the relevance to current events when these types of buzz words are used in an election year. Knowing this prepares one to recognize which candidate(s) or party aligns with individual values but more importantly the country as a whole. 
+
+
+
+
+Kalb, Don, and Walden Bello. *“Blacklash”: The Global Rise of the Radical Right*,Pulto Press, 2026.<https://doi.org/10.2307/jj.33676682>.
+
+Lazere, Donald. “Guides to the Political Conflicts”. *Writing and Reading Across the Curriculum*, edited by Laurence Behrens and Leonard J. Rosen., 6th ed., Addison Wesley Longman, 1997, pp. 282-289.
+
+Wright, Erik Olin."Social Empowerment of Socialism." *Berkeley Journal of Sociology*, Vol, 50, 2006, pp. 147-167.
+

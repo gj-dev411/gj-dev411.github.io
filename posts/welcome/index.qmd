@@ -76,7 +76,7 @@ toc: false
   <img class="byline-img" src="../../images/opportunitydoor.jpeg" alt="Gyna Jones">
   <div>
     <p class="byline-name">WORDS BY GYNA JONES</p>
-    <p class="byline-date">October 19, 2026</p>
+    
   </div>
 </div>
 
