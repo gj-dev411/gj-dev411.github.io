@@ -4,14 +4,7 @@
     "href": "posts/welcome/index.html",
     "title": "Welcome to the Blog",
     "section": "",
-    "text": "Real-world topics, current events, and the data behind them\n\n2026-10-12\nReal-world topics, current events, and the data behind them\nWelcome! This is where I’ll share my thoughts on real-world topics and respond to current events, looking at them through an analytical lens."
-  },
-  {
-    "objectID": "posts/welcome/index.html#replace-this-paragraph-with-your-own-writing.",
-    "href": "posts/welcome/index.html#replace-this-paragraph-with-your-own-writing.",
-    "title": "Welcome to the Blog",
-    "section": "(Replace this paragraph with your own writing.)",
-    "text": "(Replace this paragraph with your own writing.)"
+    "text": "Real-world topics, current events, and the data behind them\nWords by Gyna Jones\n\n2026-10-19\n\n\n\n\n\n\nWelcome to the Blog\nReal-world topics, current events, and the data behind them\n\n\n\n\n  \n  \n    WORDS BY GYNA JONES\n    October 19, 2026\n  \n\n\n\nWelcome! This is where I’ll share my thoughts on real-world topics and respond to current events, looking at them through an analytical lens."
   },
   {
     "objectID": "learning-entry3.html",
@@ -74,7 +67,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Welcome to the Blog\n\n\n\nWelcome\n\n\n\nAn introduction to what you’ll find here and why I’m writing it.\n\n\n\n\n\nOct 12, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to the Blog\n\n\n\nWelcome\n\n\n\nAn introduction to what you’ll find here and why I’m writing it.\n\n\n\n\n\nOct 19, 2026\n\n\nWords by Gyna Jones\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -84,18 +77,11 @@
     "text": "Hi, I’m Gyna.\n\n\nChange is inevitable. As the world is changing to include AI - well, in this case it is already incorporated into our day-to-day lives and our work environments. And honestly, I’m here for it. I welcome the positive benefits that artificial intelligence contributes to the betterment of society and the human condition. Thus, after careful introspection of the best ways to use my knowledge and talent of human capital, business acumen, and pattern recognition; I pledge to collect and interpret data in a socially responsible way.\n\n\n\nResearch is not necessarily new to me but I took for granted the impact data collection has on decision making at both the micro and macro levels. Understanding that data collection - rather the interpretation of collected data is the catalyst that shapes commerce, marketing, and social policy; it’s the driving force of how goods and services are now being rendered to the everyday person.\n\n\n\nThis website is a reintroduction of research and data analysis but also a real time pivot in my career from direct implementation of services to provide direction for staff, identify gaps in training, and deliver service based outcomes, using tools such as R, SQL and Quarto. Learning data analysis using synthetic databases allows me to showcase the reasoning behind each decision, documented as I rebuild the skill from the ground up.\n\nMy background is in sociology and HR-adjacent work. You can read more about that path on the My Journey page. This site itself is focused on the work: browse Learning Progress to see what I’ve built so far and visit the Blog for my thoughts on real-world topics and my response to current events."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Gyna Jones",
-    "section": "Education",
-    "text": "Education\nBA, Sociology Morgan State University, Baltimore| Maryland\nMBA, Masters of Business Administration University of Phoenix, Lancaster | California"
-  },
-  {
-    "objectID": "index.html#continued-education",
-    "href": "index.html#continued-education",
-    "title": "Gyna Jones",
-    "section": "Continued Education",
-    "text": "Continued Education\nSelf-Directed Data Analytics Training\n-Data cleaning,transformation,analysis, and visualization using R and SQL\n-Created Quarto reports to present analytical findings and recommendations\n-Completed synthetic data-cleaning exercises and independent portfolio projects"
+    "section": "",
+    "text": "Hello, I'm\n    Gyna Jones\n    And I'm a Data Analyst\n    Welcome to my data analytics portfolio. I'm building my skills in R, SQL, and Quarto with real exercises, real code, and the reasoning behind every decision, with the goal of collecting and interpreting data in a socially responsible way.\n    View My Work\n    My Journey"
   },
   {
     "objectID": "learning-entry2.html",

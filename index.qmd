@@ -119,19 +119,3 @@ body {
   </div>
 </div>
 ```
-
-## Education
-
-BA, Sociology Morgan State University, Baltimore\| Maryland
-
-MBA, Masters of Business Administration University of Phoenix, Lancaster \| California
-
-## Continued Education
-
-**Self-Directed Data Analytics Training**
-
--Data cleaning,transformation,analysis, and visualization using R and SQL
-
--Created Quarto reports to present analytical findings and recommendations
-
--Completed synthetic data-cleaning exercises and independent portfolio projects

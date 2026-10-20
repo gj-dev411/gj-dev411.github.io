@@ -41,7 +41,7 @@ toc: false
 
 **Hi, I'm Gyna.**
 
-::: {.story-row}
+::: story-row
 ![](images/journey-1.png){.story-img}
 
 Change is inevitable. As the world is changing to include AI - well, in this case it is already incorporated into our day-to-day lives and our work environments. And honestly, I'm here for it. I welcome the positive benefits that artificial intelligence contributes to the betterment of society and the human condition. Thus, after careful introspection of the best ways to use my knowledge and talent of human capital, business acumen, and pattern recognition; I pledge to collect and interpret data in a socially responsible way.
@@ -53,7 +53,7 @@ Change is inevitable. As the world is changing to include AI - well, in this cas
 Research is not necessarily new to me but I took for granted the impact data collection has on decision making at both the micro and macro levels. Understanding that data collection - rather the interpretation of collected data is the catalyst that shapes commerce, marketing, and social policy; it's the driving force of how goods and services are now being rendered to the everyday person.
 :::
 
-::: {.story-row}
+::: story-row
 ![](images/journey-3.png){.story-img}
 
 This website is a reintroduction of research and data analysis but also a real time pivot in my career from direct implementation of services to provide direction for staff, identify gaps in training, and deliver service based outcomes, using tools such as R, SQL and Quarto. Learning data analysis using synthetic databases allows me to showcase the reasoning behind each decision, documented as I rebuild the skill from the ground up.

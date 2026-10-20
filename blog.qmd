@@ -6,6 +6,6 @@ listing:
   sort: "date desc"
   type: default
   categories: true
-  fields: [image, date, title, description, categories]
+  fields: [image, date, author, title, description, categories]
 toc: false
 ---
