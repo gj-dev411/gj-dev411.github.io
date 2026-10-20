@@ -1,7 +1,6 @@
 ---
 title: "Welcome to the Blog"
 subtitle: "Real-world topics, current events, and the data behind them"
-date: "2026-10-19"
 author: "Words by Gyna Jones"
 image: header.png
 categories: [Welcome]
