@@ -23,3 +23,7 @@ Cleaned a survey data set across four columns, including missing values, duplica
 ## [Entry 3: Customer Data Cleaning — Customer_name, Order_id, Order_date, and Email](learning-entry3.qmd)
 
 Cleaned a customer data set across four columns, including case,spacing,and missing value issues.
+
+## [Entry 4: Cleaning HR  Data — id, full_name, email, and age](learning-entry3.qmd)
+
+Cleaned a synthetic data set across four columns, including cleaning and standardizing data for case inconsistencies, cleaning and standardizing missing data, and cleaning and converting data.
