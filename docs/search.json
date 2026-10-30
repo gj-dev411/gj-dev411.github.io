@@ -186,6 +186,41 @@
     "href": "learning-entry4.html#save-cleaned-data-set",
     "title": "Entry 4: SQL Basic Cleaning Exercise",
     "section": "SAVE CLEANED DATA SET",
+    "text": "SAVE CLEANED DATA SET\nCREATE TABLE cleaned_data AS\nSELECT * FROM raw_data;\n```---\ntitle: \"Entry 4: SQL Basic Cleaning Exercise\"\n---\n\n```{=html}\n&lt;style&gt;\nbody {\n  background-color: #eaf5ea;\n}\n&lt;/style&gt;\nThis database is a synthetic database created for the purpose to understand the basic concept of SQL and using some of the most important SQL commands as a beginner user.Moreover, to satisfy safe-update mode the WHERE clause is used to complete the statements below.\nCREATE TABLE raw_data(\nid INT AUTO_INCREMENT PRIMARY KEY,\nfull_name VARCHAR(100),\nemail VARCHAR(100),\nage VARCHAR(10)\n);\nBelow, is the synthetic data based on HR information that is simple enough to provide a sandbox experience of what an entry level employee may experience.\nINSERT INTO raw_data(full_name, email, age) VALUES\n('John Smith' , 'john@example.com' , '25'),\n(' jane doe ' , 'JANE@EXAMPLE.COM' , 'unknown'),\n('Mike Brown' , '' , '30');"
+  },
+  {
+    "objectID": "learning-entry4.html#inspection-of-data-1",
+    "href": "learning-entry4.html#inspection-of-data-1",
+    "title": "Entry 4: SQL Basic Cleaning Exercise",
+    "section": "INSPECTION OF DATA",
+    "text": "INSPECTION OF DATA\nUsing the DESCRIBE statement to view the structure of the database.\ndescribe raw_data;\nUsing the LIMIT clause to restrict the number of rows that are returned.\nselect *\nfrom raw_data\nlimit 5;\nUsing COUNT() function to count the number of rows in the database.\nselect count(*)\nfrom raw_data;\nUsing WHERE clause to identify missing data\nSELECT *\nFROM raw_data\nWHERE email = '';\n\nselect * \nfrom raw_data\nwhere age = 'unknown';"
+  },
+  {
+    "objectID": "learning-entry4.html#cleaning-and-standardizing-data-1",
+    "href": "learning-entry4.html#cleaning-and-standardizing-data-1",
+    "title": "Entry 4: SQL Basic Cleaning Exercise",
+    "section": "CLEANING AND STANDARDIZING DATA",
+    "text": "CLEANING AND STANDARDIZING DATA\nStandardized spacing from both ends using the TRIM() function and LOWER() function to fix case inconsistencies.\nUPDATE raw_data\nSET full_name = TRIM(full_name),\n    email = LOWER(TRIM(email))\n   WHERE id &gt; 0;\nStandardized full_name using the SET clause to change the value of the column and the WHERE clause to target which row to change.\nUPDATE raw_data\nSET full_name = 'Jane Doe'\nWHERE id = 2;"
+  },
+  {
+    "objectID": "learning-entry4.html#cleaning-and-standardizing-missing-data-1",
+    "href": "learning-entry4.html#cleaning-and-standardizing-missing-data-1",
+    "title": "Entry 4: SQL Basic Cleaning Exercise",
+    "section": "CLEANING AND STANDARDIZING MISSING DATA",
+    "text": "CLEANING AND STANDARDIZING MISSING DATA\nStandardized missing data using NULL.\nUPDATE raw_data\nSET email = null\nWHERE id &gt; 0\nAND email = '';\n\nUPDATE raw_data\nSET age = null\nWHERE id = 2;"
+  },
+  {
+    "objectID": "learning-entry4.html#cleaning-and-converting-1",
+    "href": "learning-entry4.html#cleaning-and-converting-1",
+    "title": "Entry 4: SQL Basic Cleaning Exercise",
+    "section": "CLEANING AND CONVERTING",
+    "text": "CLEANING AND CONVERTING\nNow that age has been SET to NULL, age can be converted from string to integer.\nALTER TABLE raw_data\nMODIFY age INT;\nThen verify the change from string to integer.\nDESCRIBE raw_data;\nView the entire data set with changes.\nSELECT *\nFROM raw_data;"
+  },
+  {
+    "objectID": "learning-entry4.html#save-cleaned-data-set-1",
+    "href": "learning-entry4.html#save-cleaned-data-set-1",
+    "title": "Entry 4: SQL Basic Cleaning Exercise",
+    "section": "SAVE CLEANED DATA SET",
     "text": "SAVE CLEANED DATA SET\nCREATE TABLE cleaned_data AS\nSELECT * FROM raw_data;"
   },
   {

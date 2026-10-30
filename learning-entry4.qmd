@@ -12,6 +12,131 @@ body {
 
 This database is a synthetic database created for the purpose to understand the basic concept of SQL and using some of the most important SQL commands as a beginner user.Moreover, to satisfy safe-update mode the WHERE clause is used to complete the statements below.
 
+```sql
+CREATE TABLE raw_data(
+id INT AUTO_INCREMENT PRIMARY KEY,
+full_name VARCHAR(100),
+email VARCHAR(100),
+age VARCHAR(10)
+);
+```
+Below, is the synthetic data based on HR information that is simple enough to provide a sandbox experience of what an entry level employee may experience.
+
+```sql
+INSERT INTO raw_data(full_name, email, age) VALUES
+('John Smith' , 'john@example.com' , '25'),
+(' jane doe ' , 'JANE@EXAMPLE.COM' , 'unknown'),
+('Mike Brown' , '' , '30');
+```
+
+## INSPECTION OF DATA
+
+Using the DESCRIBE statement to view the structure of the database.
+
+```sql
+describe raw_data;
+```
+
+Using the LIMIT clause to restrict the number of rows that are returned.
+
+```sql
+select *
+from raw_data
+limit 5;
+```
+
+Using COUNT() function to count the number of rows in the database.
+
+```sql
+select count(*)
+from raw_data;
+```
+
+Using WHERE clause to identify missing data
+
+```sql
+SELECT *
+FROM raw_data
+WHERE email = '';
+
+select * 
+from raw_data
+where age = 'unknown';
+```
+
+## CLEANING AND STANDARDIZING DATA
+
+Standardized spacing from both ends using the TRIM() function and LOWER() function to fix case inconsistencies.
+
+```sql
+UPDATE raw_data
+SET full_name = TRIM(full_name),
+	email = LOWER(TRIM(email))
+   WHERE id > 0;
+```
+
+Standardized full_name using the SET clause to change the value of the column and the WHERE clause to target which row to change. 
+
+```sql
+UPDATE raw_data
+SET full_name = 'Jane Doe'
+WHERE id = 2;
+```
+
+## CLEANING AND STANDARDIZING MISSING DATA
+
+Standardized missing data using NULL.
+
+```sql
+UPDATE raw_data
+SET email = null
+WHERE id > 0
+AND email = '';
+
+UPDATE raw_data
+SET age = null
+WHERE id = 2;
+```
+
+## CLEANING AND CONVERTING
+
+Now that age has been SET to NULL, age can be converted from string to integer.
+
+```sql
+ALTER TABLE raw_data
+MODIFY age INT;
+```
+Then verify the change from string to integer.
+
+```sql
+DESCRIBE raw_data;
+```
+
+View the entire data set with changes.
+
+```sql
+SELECT *
+FROM raw_data;
+```
+## SAVE CLEANED DATA SET
+
+```sql
+CREATE TABLE cleaned_data AS
+SELECT * FROM raw_data;
+```---
+title: "Entry 4: SQL Basic Cleaning Exercise"
+---
+
+```{=html}
+<style>
+body {
+  background-color: #eaf5ea;
+}
+</style>
+```
+
+This database is a synthetic database created for the purpose to understand the basic concept of SQL and using some of the most important SQL commands as a beginner user.Moreover, to satisfy safe-update mode the WHERE clause is used to complete the statements below.
+
 ``` sql
 CREATE TABLE raw_data(
 id INT AUTO_INCREMENT PRIMARY KEY,
