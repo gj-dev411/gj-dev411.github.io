@@ -11,7 +11,7 @@
     "href": "learning.html",
     "title": "Learning Progress",
     "section": "",
-    "text": "Below is a record of R cleaning exercises I’ve worked through, in the order completed. Each entry is its own page, with the data cleaned systematically — checking before and after each fix, using both base R and tidyverse approaches."
+    "text": "Below is a record of R cleaning exercises I’ve worked through, in the order completed. Each entry is its own page, with the data cleaned systematically — checking before and after each fix, using base R and SQL."
   },
   {
     "objectID": "learning.html#entry-1-df2-data-cleaning-case-spacing-and-missing-data",
